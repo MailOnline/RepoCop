@@ -94,7 +94,7 @@ gulp.task('styleLibs', function() {
         .pipe(less())
         .pipe(concat('repocop-libs.css'))
         .pipe(replace(/fonts\/footable/g, '../fonts/footable'))        
-        .pipe(cachebust.resources())                   
+        .pipe(cachebust.resources())
         .pipe(gulp.dest('public/dist/css'));
 });
 
@@ -103,15 +103,15 @@ gulp.task('images', function() {
         .pipe(gulp.dest('public/dist/images'));
 });
 
-gulp.task('html', function() {
+gulp.task('html', ['resources'], function() {
     return gulp.src(html)
-        .pipe(cachebust.references())                           
+        .pipe(cachebust.references())
         .pipe(gulp.dest('public/dist/html'));
 });
 
-gulp.task('templates', function() {
+gulp.task('templates', ['resources'], function() {
     return gulp.src(templates)
-        .pipe(cachebust.references())                           
+        .pipe(cachebust.references())
         .pipe(gulp.dest('public/dist/handlebars'));
 });
 
@@ -119,13 +119,13 @@ gulp.task('resources', ['fonts', 'scripts', 'scriptLibs', 'styles', 'styleLibs',
 
 gulp.task('default', ['server'], function() {
     gulp.watch(scripts, ['scripts', 'html', 'templates']);
-    gulp.watch(scriptLibs, ['scriptLibs', 'html', 'templates']);    
+    gulp.watch(scriptLibs, ['scriptLibs', 'html', 'templates']);
     gulp.watch(styles, ['styles', 'html', 'templates']);
     gulp.watch(styleLibs, ['styleLibs', 'html', 'templates']);
     gulp.watch(fonts, ['fonts']);
     gulp.watch(images, ['images', 'html', 'templates']);
-    gulp.watch(html, ['html']);    
-    gulp.watch(templates, ['templates']);     
+    gulp.watch(html, ['html']);
+    gulp.watch(templates, ['templates']);
 });
 
 gulp.task('server', ['build'], function(callback) {
