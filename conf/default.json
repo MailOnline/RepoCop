@@ -5,8 +5,17 @@
         "workers": 2
     },
     "survey": {
-        "output": "data/repositories.json"
-    },  
+        "output": "data/repositories.json",
+        "organisations": [
+            {
+                "name": "MailOnline",
+                "providerKey": "github",
+                "authentication": {
+                    "type": "basic"
+                }
+            }
+        ]
+    },
     "logging": {
         "console": {            
             "type": "Console",
