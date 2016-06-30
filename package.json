@@ -5,7 +5,7 @@
   "main": "cluster.js",
   "scripts": {
     "test": "echo \"No test specified yet\"",
-    "postinstall": "bower install"
+    "postinstall": "./node_modules/.bin/bower --allow-root install"
   },
   "repository": {
     "type": "git",
