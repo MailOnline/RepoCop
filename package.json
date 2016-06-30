@@ -4,7 +4,8 @@
   "description": "Gathers metadata from source code repositories",
   "main": "cluster.js",
   "scripts": {
-    "test": "echo \"No test specified yet\""
+    "test": "echo \"No test specified yet\"",
+    "postinstall": "bower install"
   },
   "repository": {
     "type": "git",
