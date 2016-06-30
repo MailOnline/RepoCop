@@ -14,7 +14,8 @@
                     "type": "basic"
                 }
             }
-        ]
+        ],
+        "frequency": 3600000
     },
     "logging": {
         "console": {            

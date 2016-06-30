@@ -20,10 +20,8 @@ cluster.run();
 
 if (config.survey.frequency) {
     setTimeout(function() {
-        (function scheduleSurvey() {
-            requestSurvey();
-            setTimeout(scheduleSurvey, config.survey.frequency);
-        })();
+        requestSurvey();
+        setInterval(requestSurvey, config.survey.frequency);
     }, 10000);
 };
 
